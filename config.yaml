@@ -1,11 +1,11 @@
 dbuilder-namespace-mapping:
-  registry.hub.docker.com: seznam
+  registry.hub.docker.com: wand
 
 packages:
   debian:
     templates:
-      - {file: apt_based.dockerfile, tags: [squeeze, 6, wheezy, 7, jessie, jessie-backports, 8, latest]}
+      - {file: apt_based.dockerfile, tags: [squeeze, wheezy, jessie, jessie-backports, latest], jinja_env: {preinstall_packages: ['git', 'ca-certificates']}}
 
   ubuntu:
     templates:
-      - {file: apt_based.dockerfile, tags: ['12.04', '14.04', '15.04', '15.10']}
+      - {file: apt_based.dockerfile, tags: ['12.04', '14.04', '15.04', '15.10'], jinja_env: {preinstall_packages: ['git', 'ca-certificates']}}
